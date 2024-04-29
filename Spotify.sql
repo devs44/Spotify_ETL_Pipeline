@@ -1,0 +1,47 @@
+-- create database
+CREATE OR REPLACE database SPOTIFY_ETL;
+
+-- create schema
+CREATE OR REPLACE SCHEMA  Spotify_schema;
+
+
+USE SCHEMA Spotify_schema;
+
+
+-- create table
+CREATE OR REPLACE TABLE ALBUM(
+    album_id STRING,
+    album_name  STRING,
+    release_date STRING,
+    total_tracks INTEGER,
+    URL STRING,
+    UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+CREATE OR REPLACE TABLE ALBUM_HISTORY(
+    album_id STRING,
+    album_name  STRING,
+    release_date STRING,
+    total_tracks INTEGER,
+    URL STRING,
+    UPDATE_TIMESTAMP TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+    START_TIME TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+    END_TIME TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+    IS_CURRENT BOOLEAN
+);
+
+CREATE OR REPLACE TABLE ALBUM_RAW(
+      album_id STRING,
+      name  STRING,
+      release_date STRING,
+      total_tracks INTEGER,
+      url STRING
+);
+
+SELECT * FROM  ALBUM_RAW
+
+SELECT * FROM ALBUM
+
+SELECT * FROM ALBUM_HISTORY
+
+
